@@ -146,138 +146,12 @@ article>* {
 }
 
 #alap a:hover {
-    color: black;
+    color: gray;
 }
 
 #alap ul li a:hover {
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid white;
     width: 60px;
-}
-
-
-/*---------------------------------------------*/
-
-
-/*Typewriter kialakítása*/
-
-.nev {
-    position: relative;
-    font-family: 'Source Code Pro', monospace;
-    font-size: 50px;
-    width: max-content;
-    color: white;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.nev::after {
-    width: 0.125em;
-    background: black;
-    animation: typewriter 0.1ms steps(20) 0.1ms forwards, blink 500ms steps(20)infinite;
-}
-
-.nev::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-.nevDiv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-bottom: 40px;
-}
-
-.nev span {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.nev span:first-child {
-    animation: nev-glitch 650ms infinite;
-    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-    transform: translate(-0.025em, -0.0125em);
-    opacity: 0.8;
-}
-
-.nev span:last-child {
-    animation: nev-glitch 375ms infinite;
-    clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
-    transform: translate(0.0125em, 0.025em);
-    opacity: 0.8;
-}
-
-
-/*---------------------------------------------*/
-
-
-/*Fő gomb kialakítása*/
-
-.neon-gomb {
-    font-size: 3rem;
-    display: inline-block;
-    cursor: pointer;
-    text-decoration: none;
-    color: hsl(317 100% 54%);
-    border: hsl(317 100% 54%) 0.125em solid;
-    padding: 0.25em 1em;
-    background: #1a1818;
-    border-radius: 0.25em;
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
-    box-shadow: inset 0 0 0.5em 0 hsl(317 100% 54%), 0 0 0.5em 0 hsl(317 100% 54%);
-    position: relative;
-    transition: background-color 100ms linear;
-}
-
-.neon-gomb::before {
-    pointer-events: none;
-    content: "";
-    position: absolute;
-    background: hsl(317 100% 54%);
-    top: 120%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: perspective(1em) rotateX(100deg) scale(1, 0.35);
-    filter: blur(2em);
-    opacity: 0.75;
-}
-
-.neon-gomb:hover,
-.neon-gomb:focus {
-    background: hsl(317 100% 54%);
-    color: #1a1818;
-    text-shadow: none;
-}
-
-.neon-gomb::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    box-shadow: 0 0 2em 0.5em hsl(317 100% 54%);
-    opacity: 0;
-    transition: opacity 100ms linear;
-    background: hsl(317 100% 54%);
-    z-index: -1;
-}
-
-.neon-gomb:hover::after,
-.neon-gomb:focus::after {
-    opacity: 1;
-}
-
-.neon-gomb:hover::before,
-.neon-gomb:focus::before {
-    opacity: 1;
 }
 
 
@@ -353,10 +227,6 @@ article>* {
     top: 0;
 }
 
-.articleChange {
-    padding-top: 260px;
-}
-
 .nav-list {
     text-align: center;
 }
@@ -369,7 +239,7 @@ article>* {
 .nav-list>li>a {
     text-decoration: none;
     font-size: 22px;
-    color: #444;
+    color: white;
     font-weight: 300;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -401,6 +271,135 @@ article>* {
 .nav-list>li>a:hover::before,
 .nav-list>li>a:hover::after {
     transform: scaleX(1);
+}
+
+
+/*---------------------------------------------*/
+
+
+
+/*Typewriter kialakítása*/
+
+.nev {
+    position: relative;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 50px;
+    width: max-content;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.nev::after {
+    width: 0.125em;
+    background: black;
+    animation: typewriter 0.1ms steps(20) 0.1ms forwards, blink 500ms steps(20)infinite;
+}
+
+.nev::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.nevDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.nev span {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.nev span:first-child {
+    animation: nev-glitch 650ms infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-0.025em, -0.0125em);
+    opacity: 0.8;
+}
+
+.nev span:last-child {
+    animation: nev-glitch 375ms infinite;
+    clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+    transform: translate(0.0125em, 0.025em);
+    opacity: 0.8;
+}
+
+
+/*---------------------------------------------*/
+
+
+/*Fő gomb kialakítása*/
+
+
+.neon-gomb {
+    font-size: 3rem;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: hsl(317 100% 54%);
+    border: hsl(317 100% 54%) 0.125em solid;
+    padding: 0.25em 1em;
+    background: #1a1818;
+    border-radius: 0.25em;
+    text-shadow:
+    0 0 0.125em hsl(0 0% 100% / 0.3), 
+    0 0 0.45em currentColor;
+    box-shadow: inset 0 0 0.5em 0 hsl(317 100% 54%), 0 0 0.5em 0 hsl(317 100% 54%);
+    position: relative;
+    transition: background-color 100ms linear;
+}
+
+.neon-gomb::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    background: hsl(317 100% 54%);
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: perspective(1em) rotateX(100deg) scale(1, 0.35);
+    filter: blur(2em);
+    opacity: 0.75;
+}
+
+
+.neon-gomb::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 2em 0.5em hsl(317 100% 54%);
+    opacity: 0;
+    transition: opacity 100ms linear;
+}
+
+.neon-gomb:hover,
+.neon-gomb:focus {
+    background: hsl(317 100% 54%);
+    color: black;
+    text-shadow: none;
+}
+
+.neon-gomb:hover::after,
+.neon-gomb:focus::after {
+    opacity: 1;
+}
+
+.neon-gomb:hover::before,
+.neon-gomb:focus::before {
+    opacity: 1;
 }
 
 
