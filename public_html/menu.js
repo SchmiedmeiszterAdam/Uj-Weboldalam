@@ -9,10 +9,15 @@ $(function() {
     $('.nev').append(" ");
     setTimeout(kesleltet, 1500);
     setTimeout(nevUjra, 5510);
+    setTimeout(nevFrissites, 5600);
+
 });
 
 function kesleltet() {
     setInterval(nevLetrehozas, 200);
+}
+function nevFrissites(){
+    setInterval(nevUjra, 1000);
 }
 
 function nevLetrehozas() {
@@ -20,7 +25,6 @@ function nevLetrehozas() {
         adottBetu = nev.charAt(j);
         $('.nev').append(adottBetu);
         j++;
-        console.log(j);
     }
 }
 
