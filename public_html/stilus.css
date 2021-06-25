@@ -39,8 +39,18 @@ article {
 #negyedik {
     scroll-snap-align: center;
 }
-#masodik{
+/*#masodik{
     background: url("kepek/hatter2.jpg");
+}*/
+.masodik-hatter{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    z-index: -10;
 }
 #harmadik{
     background: url("kepek/hatter3.jpg");
