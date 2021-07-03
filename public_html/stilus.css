@@ -6,14 +6,8 @@
     margin: 0;
     padding: 0;
 }
-
-html {
+html{
     scroll-behavior: smooth;
-}
-
-body {
-    color: white;
-    overflow: hidden;
 }
 
 main {
@@ -23,28 +17,44 @@ main {
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
 }
-::-webkit-scrollbar{
-    display: none;
-}
-article {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    color: black;
-}
 
 #elso,
 #masodik,
-#harmadik,
-#negyedik {
+#harmadik {
     scroll-snap-align: center;
 }
-#masodik{
+
+/*Fő oldal kialakítása*/
+#kezdo-oldal {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url('kepek/hatter.jpg');
+    top: 0;
+}
+.kezdo-oldal-tartalom {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+/*---------------------------------------------*/
+
+
+/*Első szekció*/
+#elso{
     background: url("kepek/hatter2.jpg");
 }
-.harmadik-hatter{
+/*---------------------------------------------*/
+
+
+/*Második szekció*/
+#masodik{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.masodik-hatter{
     position: absolute;
     top: 0;
     left: 0;
@@ -54,21 +64,42 @@ article {
     opacity: 1;
     z-index: -10;
 }
-#negyedik{
+/*---------------------------------------------*/
+
+
+/*Harmadik szekció*/
+#harmadik{
     background: url("kepek/hatter4.jpg");
 }
+/*---------------------------------------------*/
 
-footer {
+/*Összesítve*/
+.masodik-div,.harmadik-div{
     width: 100%;
-    display: grid;
-    place-items: center;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+}
+.masodik-tarolo,.harmadik-tarolo{
+    width: 100%;
+    height: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.masodik-kartya,.harmadik-kartya{
+    width: 25vw;
+    height: 40vw;
+    border-radius: 30px;
+    background: black;
+    position: relative;
+    opacity: 0.8;
 }
 
-header {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url('kepek/hatter.jpg');
-    top: 0;
-}
-#elso,#masodik,#harmadik,#negyedik{
+#kezdo-oldal,#elso,#masodik,#harmadik{
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
@@ -77,38 +108,16 @@ header {
     background-size: cover;
     background-position: center;
 }
+/*---------------------------------------------*/
 
-header::after {
-    content: '';
-    display: table;
-    clear: both;
+/*Tartalom kialakítása*/
+.kartya-animacio{    
+    animation-name: becsuszas;
+    animation-duration: 2s;
 }
+/*---------------------------------------------*/
 
-.tartalom {
-    opacity: 0;
-    transform: translateY();
-    animation: kesleltetes 2s ease 5.5s forwards;
-}
 
-.bal-oldal {
-    min-width: 50%;
-}
-
-article>* {
-    min-height: 80%;
-}
-
-.belso {
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%;
-    max-width: none;
-}
-
-.header-tartalom {
-    margin: 0 auto;
-    text-align: center;
-}
 
 
 /*---------------------------------------------*/
@@ -129,7 +138,7 @@ article>* {
     padding: 10px 0;
 }
 
-#alap ul {
+#alap-navigacio ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -138,18 +147,18 @@ article>* {
     width: 100%;
 }
 
-#alap {
+#alap-navigacio {
     float: right;
 }
 
-#alap li {
+#alap-navigacio li {
     display: inline-block;
     margin-left: 8vw;
     padding-top: 23px;
     position: relative;
 }
 
-#alap ul li a {
+#alap-navigacio ul li a {
     text-decoration: none;
     color: white;
     text-transform: uppercase;
@@ -157,11 +166,11 @@ article>* {
     cursor: pointer;
 }
 
-#alap a:hover {
+#alap-navigacio a:hover {
     color: gray;
 }
 
-#alap ul li a:hover {
+#alap-navigacio ul li a:hover {
     border-bottom: 2px solid white;
     width: 60px;
 }
@@ -172,7 +181,7 @@ article>* {
 
 /*Reszponzív navigáció*/
 
-.container {
+.reszponziv-nav-tarolo {
     display: none;
     height: 60px;
     width: 100%;
@@ -183,7 +192,7 @@ article>* {
     z-index: 2;
 }
 
-.hamburgerMenu {
+.hamburger-menu {
     width: 35px;
     height: 30px;
     position: fixed;
@@ -198,29 +207,29 @@ article>* {
     backdrop-filter: blur(15px);
 }
 
-.line {
+.vonal {
     width: 100%;
     height: 5px;
     background: black;
 }
 
-.change .line-1 {
+.change .vonal-1 {
     transform: rotateZ(-45deg) translate(-8px, 6px);
 }
 
-.change .line-2 {
+.change .vonal-2 {
     opacity: 0;
 }
 
-.change .line-3 {
+.change .vonal-3 {
     transform: rotateZ(45deg) translate(-8px, -6px);
 }
 
-.containerHatter {
+.reszponziv-nav-tarolo-hatter {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
 }
 
-.navBar {
+.nav-bar {
     width: 100%;
     height: 250px;
     position: fixed;
@@ -291,7 +300,9 @@ article>* {
 
 
 /*Typewriter kialakítása*/
-
+.nev-valtozas:first-letter{
+    font-size: 0.0005px;
+}
 .nev {
     position: relative;
     font-family: 'Source Code Pro', monospace;
@@ -317,7 +328,7 @@ article>* {
     left: 0;
 }
 
-.nevDiv {
+.nev-div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -363,8 +374,8 @@ article>* {
     background: #1a1818;
     border-radius: 0.25em;
     text-shadow:
-    0 0 0.125em hsl(0 0% 100% / 0.3), 
-    0 0 0.45em currentColor;
+        0 0 0.125em hsl(0 0% 100% / 0.3), 
+        0 0 0.45em currentColor;
     box-shadow: inset 0 0 0.5em 0 hsl(317 100% 54%), 0 0 0.5em 0 hsl(317 100% 54%);
     position: relative;
     transition: background-color 100ms linear;
@@ -420,20 +431,6 @@ article>* {
 
 /*Többi*/
 
-#facebook {
-    background: url("kepek/flash.png")
-}
-
-main video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 1;
-}
-
 
 /*---------------------------------------------*/
 
@@ -449,38 +446,38 @@ main video {
 @keyframes nev-glitch {
     0% {
         text-shadow: 0.05em 0 0 rgba(255, 0, 0, .75), 
-        -0.05em -0.025em 0 rgba(0, 255, 0, .75), 
-        -0.025em 0.05em 0 rgba(0, 0, 255, .75);
+            -0.05em -0.025em 0 rgba(0, 255, 0, .75), 
+            -0.025em 0.05em 0 rgba(0, 0, 255, .75);
     }
     14% {
         text-shadow: 0.05em 0 0 rgba(255, 0, 0, .75), 
-        -0.025em -0.05em 0 rgba(0, 255, 0, .75), 
-        0.025em 0.05em 0 rgba(0, 0, 255, .75);
+            -0.025em -0.05em 0 rgba(0, 255, 0, .75), 
+            0.025em 0.05em 0 rgba(0, 0, 255, .75);
     }
     15% {
         text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, .75), 
-        0.025em 0.0025em 0 rgba(0, 255, 0, .75), 
-        -0.05em -0.05em 0 rgba(0, 0, 255, .75);
+            0.025em 0.0025em 0 rgba(0, 255, 0, .75), 
+            -0.05em -0.05em 0 rgba(0, 0, 255, .75);
     }
     15% {
         text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, .75), 
-        0.025em 0.0025em 0 rgba(0, 255, 0, .75), 
-        -0.05em -0.05em 0 rgba(0, 0, 255, .75);
+            0.025em 0.0025em 0 rgba(0, 255, 0, .75), 
+            -0.05em -0.05em 0 rgba(0, 0, 255, .75);
     }
     50% {
         text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, .75), 
-        0.05em 0 0 rgba(0, 255, 0, .75), 
-        0 -0.05em 0 rgba(0, 0, 255, .75);
+            0.05em 0 0 rgba(0, 255, 0, .75), 
+            0 -0.05em 0 rgba(0, 0, 255, .75);
     }
     50% {
         text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, .75), 
-        0.05em 0 0 rgba(0, 255, 0, .75), 
-        0 -0.05em 0 rgba(0, 0, 255, .75);
+            0.05em 0 0 rgba(0, 255, 0, .75), 
+            0 -0.05em 0 rgba(0, 0, 255, .75);
     }
     100% {
         text-shadow: -0.025em 0 0 rgba(255, 0, 0, .75), 
-        -0.025em -0.025em 0 rgba(0, 255, 0, .75), 
-        -0.025em -0.05em 0 rgba(0, 0, 255, .75);
+            -0.025em -0.025em 0 rgba(0, 255, 0, .75), 
+            -0.025em -0.05em 0 rgba(0, 0, 255, .75);
     }
 }
 
@@ -495,6 +492,10 @@ main video {
         opacity: 1;
         transform: translateY(1rem);
     }
+}
+@keyframes becsuszas {
+    0%   {left:-300px;opacity:0.3}
+    100% {left:0px; opacity:0.8}
 }
 
 
@@ -513,16 +514,13 @@ main video {
     main {
         grid-template-areas: "hd" "n" "a" "f";
     }
-    .hamburgerMenu {
+    .hamburger-menu {
         display: flex;
     }
-    .container {
+    .reszponziv-nav-tarolo {
         display: block;
     }
     header {
         padding-top: 0px;
-    }
-    article {
-        padding-top: 70px;
     }
 }

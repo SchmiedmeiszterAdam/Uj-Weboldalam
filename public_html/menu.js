@@ -1,37 +1,21 @@
-var nev = "Schmiedmeiszter Ádám";
-j = 0;
-$(function() {
-    $(".hamburgerMenu").on("click", function() {
-        $(".navBar").toggleClass("change");
-        $(".navBar").toggleClass("filter");
-        $(".container").toggleClass("containerHatter");
+$(function () {
+    $(".hamburger-menu").on("click", function () {
+        $(".nav-bar").toggleClass("change");
+        $(".nav-bar").toggleClass("filter");
+        $(".reszponziv-nav-tarolo").toggleClass("reszponziv-nav-tarolo-hatter");
     });
-    $('.nev').append(" ");
-    setTimeout(kesleltet, 1500);
-    setTimeout(nevUjra, 5510);
-    setTimeout(nevFrissites, 5600);
-
+    $(".elso-oldal-nav").on("click", function () {
+        $(".masodik-kartya").removeClass("kartya-animacio");
+        $(".harmadik-kartya").removeClass("kartya-animacio");
+    });
+    $(".masodik-oldal-nav").on("click", function () {
+        $(".harmadik-kartya").removeClass("kartya-animacio");
+        $(".masodik-kartya").addClass("kartya-animacio");
+    });
+    $(".harmadik-oldal-nav").on("click", function () {
+        $(".harmadik-kartya").addClass("kartya-animacio");
+        $(".masodik-kartya").removeClass("kartya-animacio");
+    });
 });
 
-function kesleltet() {
-    setInterval(nevLetrehozas, 200);
-}
-function nevFrissites(){
-    setInterval(nevUjra, 1000);
-}
 
-function nevLetrehozas() {
-    if (j < nev.length) {
-        adottBetu = nev.charAt(j);
-        $('.nev').append(adottBetu);
-        j++;
-    }
-}
-
-function nevUjra() {
-    $('.nev').empty();
-    $('.nev').append(nev);
-    $('.nev').append("<span aria-hidden='true'>" + nev + "</span><span aria-hidden='true'>" + nev + "</span>");
-    $('.nev').css("text-shadow","0.05em 0 0 rgba(255, 0, 0, .75), -0.025em -0.05em 0 rgba(0, 255, 0, .75), 0.025em 0.05em 0 rgba(0, 0, 255, .75)");
-    $('.nev').css("animation","nev-glitch 500ms infinite");
-}
