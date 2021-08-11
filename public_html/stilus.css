@@ -44,16 +44,83 @@ main {
 #elso{
     background: url("kepek/hatter2.jpg");
 }
+
+
+.elso-kartya-1-cim{
+    color: white;
+    font-size: 3em;
+}
+.elso-kartya-1:hover .elso-kartya-1-cim {
+    display: block !important;
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
+}
+.elso-kartya-1:not(:hover) .elso-kartya-1-cim.did-fade-in {
+    animation: fade-out s;
+}
+.elso-kartya-1-cim-div{
+    height: 50px;
+    margin-top: 4em;
+}
+.elso-kartya{
+    height: calc(100vh - 60px);
+    width: calc(100% / 3);
+    opacity: 0.8;
+    position: relative;
+    transition: width 300ms linear ;
+}
+.elso-tarolo{
+    display: flex;
+    height: 100vh;
+    align-items: flex-end;
+}
+.elso-kartya-1{
+    background: url("kepek/gaming.png");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.elso-kartya-2{    
+    background: url("kepek/program.png");
+}
+.elso-kartya-3{    
+    background: url("kepek/harmadik.gif");
+}
+.elso-kartya-1,
+.elso-kartya-2,
+.elso-kartya-3{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.elso-kartya-1:hover{
+    background: url("kepek/gaming.gif");
+}
+.elso-kartya-2:hover{    
+    background: url("kepek/program.gif");
+}
+.elso-kartya-gomb{
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.elso-kartya-1:hover,
+.elso-kartya-2:hover,
+.elso-kartya-3:hover{
+    width: calc(100% / 1.8);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;    
+}
+:is(.elso-kartya-1-cim) .elso-kartya-1:hover{
+    display: block;
+}
 /*---------------------------------------------*/
 
 
 /*Második szekció*/
-#masodik{
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-}
-
 .masodik-hatter{
     position: absolute;
     top: 0;
@@ -64,23 +131,12 @@ main {
     opacity: 1;
     z-index: -10;
 }
-/*---------------------------------------------*/
-
-
-/*Harmadik szekció*/
-#harmadik{
-    background: url("kepek/hatter4.jpg");
-}
-/*---------------------------------------------*/
-
-/*Összesítve*/
-.masodik-div,.harmadik-div{
+.masodik-div{
     width: 100%;
     height: 100vh;
     display: flex;
-    justify-content: flex-end;
 }
-.masodik-tarolo,.harmadik-tarolo{
+.masodik-tarolo{
     width: 100%;
     height: 90%;
     margin: auto;
@@ -90,7 +146,7 @@ main {
     align-items: center;
     flex-wrap: wrap;
 }
-.masodik-kartya,.harmadik-kartya{
+.masodik-kartya{
     width: 25vw;
     height: 40vw;
     border-radius: 30px;
@@ -98,6 +154,18 @@ main {
     position: relative;
     opacity: 0.8;
 }
+/*---------------------------------------------*/
+
+
+/*Harmadik szekció*/
+#harmadik{
+    background: url("kepek/hatter4.jpg");
+}
+
+/*---------------------------------------------*/
+
+/*Összesítve*/
+
 
 #kezdo-oldal,#elso,#masodik,#harmadik{
     width: 100%;
@@ -131,6 +199,7 @@ main {
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
+    z-index: 5;
 }
 
 .logo {
@@ -316,7 +385,7 @@ main {
 .nev::after {
     width: 0.125em;
     background: black;
-    animation: typewriter 0.1ms steps(20) 0.1ms forwards, blink 500ms steps(20)infinite;
+    animation: typewriter forwards, blink 500ms infinite;
 }
 
 .nev::after {
@@ -431,7 +500,6 @@ main {
 
 /*Többi*/
 
-
 /*---------------------------------------------*/
 
 
@@ -493,10 +561,30 @@ main {
         transform: translateY(1rem);
     }
 }
+
 @keyframes becsuszas {
     0%   {left:-300px;opacity:0.3}
     100% {left:0px; opacity:0.8}
 }
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+@keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
 
 
 /*Reszpó*/
@@ -505,14 +593,38 @@ main {
     .nev {
         font-size: 7.7vw;
     }
+    .elso-tarolo{
+        flex-direction: column;
+    }
+    .elso-kartya-1,
+    .elso-kartya-2,
+    .elso-kartya-3{
+        width: 100%;
+        background-size: cover;
+    }
+    .elso-kartya-1:hover,
+    .elso-kartya-2:hover,
+    .elso-kartya-3:hover{
+        width: 100%;
+    }
+    .masodik-tarolo{
+        flex-direction: column;
+        height: 90%;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+    .masodik-div{
+        align-items: flex-end;
+    }    
+    .masodik-kartya{
+        width: 300px;
+        height: 18rem;
+    }
 }
 
 @media screen and (max-width: 500px) {
     .nav-tarolo {
         display: none;
-    }
-    main {
-        grid-template-areas: "hd" "n" "a" "f";
     }
     .hamburger-menu {
         display: flex;
@@ -522,5 +634,8 @@ main {
     }
     header {
         padding-top: 0px;
+    }
+    .neon-gomb {
+        font-size: 9.7vw;
     }
 }

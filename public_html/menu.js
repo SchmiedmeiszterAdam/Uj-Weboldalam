@@ -6,16 +6,20 @@ $(function () {
     });
     $(".elso-oldal-nav").on("click", function () {
         $(".masodik-kartya").removeClass("kartya-animacio");
-        $(".harmadik-kartya").removeClass("kartya-animacio");
     });
     $(".masodik-oldal-nav").on("click", function () {
-        $(".harmadik-kartya").removeClass("kartya-animacio");
         $(".masodik-kartya").addClass("kartya-animacio");
     });
     $(".harmadik-oldal-nav").on("click", function () {
-        $(".harmadik-kartya").addClass("kartya-animacio");
         $(".masodik-kartya").removeClass("kartya-animacio");
     });
-});
+    $(".elso-kartya-1-cim").css("display","none");
+    $(".elso-kartya-1").mouseleave(function(){
+        setTimeout(de, 2000);
+    })
 
+});
+function de(){
+    $(".elso-kartya-1-cim").css("display","none");
+}
 
