@@ -5,16 +5,22 @@
     <title>TODO supply a title</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="stilus.css" rel="stylesheet" type="text/css" />
+    <link href="stilus.css" rel="stylesheet" type="text/css" />    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="menu.js" type="text/javascript"></script>
+    <script src="toltes.js" type="text/javascript"></script>
+    <script src="reszponziv-navigacio.js" type="text/javascript"></script>
+    <script src="navigacio-effektek.js" type="text/javascript"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <main>
+    <main id="tolto-kep">
+        <div class="loader"></div>
+        <h2 class="loading">Loading...</h2>
+    </main>
+    <main id="oldal-tartalom">
         <div class="nav-tarolo">
             <img src="kepek/smoke.png" alt="" class="logo">
             <nav id="alap-navigacio">
@@ -43,10 +49,10 @@
                         <a href="#elso" class="elso-oldal-nav">Rólam</a>
                     </li>
                     <li>
-                        <a href="#negyedik" class="negyedik-oldal-nav">Végzettség</a>
+                        <a href="#masodik" class="negyedik-oldal-nav">Végzettség</a>
                     </li>
                     <li>
-                        <a href="#negyedik" class="negyedik-oldal-nav">Kapcsolat</a>
+                        <a href="#harmadik" class="negyedik-oldal-nav">Kapcsolat</a>
                     </li>
                 </ul>
             </nav>
@@ -59,7 +65,7 @@
                             <h1 class="elso-kartya-1-cim">Playing</h1>
                         </div>                        
                         <div class="elso-kartya-gomb">
-                            <a href="oldalak.html" class="neon-gomb">Tovább</a>
+                            <a href="oldalak.html" class="masodik-oldal-elso-kartya-gomb">Tovább</a>
                         </div>
 
                     </div>
@@ -72,13 +78,13 @@
                 </div>
             </div>
         </article>
-        <img src=kepek/hatter3.jpg class="masodik-hatter" loading="lazy">
+        <img src=kepek/hatter3.jpg class="masodik-hatter">
         <article id="masodik">            
             <div class="masodik-div">
                 <div class="masodik-tarolo">
-                    <div class="masodik-kartya"></div>
-                    <div class="masodik-kartya"></div>
-                    <div class="masodik-kartya"></div>
+                    <div class="masodik-kartya masodik-kartya-1"></div>
+                    <div class="masodik-kartya masodik-kartya-2"></div>
+                    <div class="masodik-kartya masodik-kartya-3"></div>
                 </div>
             </div>
         </article>

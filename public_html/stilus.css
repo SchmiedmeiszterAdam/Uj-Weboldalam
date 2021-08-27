@@ -6,22 +6,14 @@
     margin: 0;
     padding: 0;
 }
-html{
-    scroll-behavior: smooth;
-}
-
 main {
     width: 100%;
     height: 100vh;
     overflow-y: hidden;
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
 }
-
-#elso,
-#masodik,
-#harmadik {
-    scroll-snap-align: center;
+#oldal-tartalom{
+    display: none;
 }
 
 /*Fő oldal kialakítása*/
@@ -42,13 +34,12 @@ main {
 
 /*Első szekció*/
 #elso{
-    background: url("kepek/hatter2.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)),url("kepek/hatter2.jpg");
 }
-
-
 .elso-kartya-1-cim{
     color: white;
     font-size: 3em;
+    display: none;
 }
 .elso-kartya-1:hover .elso-kartya-1-cim {
     display: block !important;
@@ -56,7 +47,7 @@ main {
     animation: fadeIn 2s;
 }
 .elso-kartya-1:not(:hover) .elso-kartya-1-cim.did-fade-in {
-    animation: fade-out s;
+    animation: fade-out 2s;
 }
 .elso-kartya-1-cim-div{
     height: 50px;
@@ -85,7 +76,7 @@ main {
     background: url("kepek/program.png");
 }
 .elso-kartya-3{    
-    background: url("kepek/harmadik.gif");
+    /*background: url("kepek/harmadik.gif");*/
 }
 .elso-kartya-1,
 .elso-kartya-2,
@@ -95,16 +86,25 @@ main {
     background-position: center;
 }
 .elso-kartya-1:hover{
-    background: url("kepek/gaming.gif");
+    background: url("kepek/gaming2.gif");
 }
 .elso-kartya-2:hover{    
     background: url("kepek/program.gif");
 }
-.elso-kartya-gomb{
+.masodik-oldal-elso-kartya-gomb{
     height: 40%;
-    display: flex;
+    width: fit-content;
+    display: none;
     justify-content: center;
     align-items: center;
+}
+.elso-kartya-1:hover .masodik-oldal-elso-kartya-gomb{
+    display: flex !important;
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
+}
+.elso-kartya-1:not(:hover) .masodik-oldal-elso-kartya-gomb.did-fade-in {
+    animation: fade-out 2s;
 }
 .elso-kartya-1:hover,
 .elso-kartya-2:hover,
@@ -114,9 +114,13 @@ main {
     background-size: cover;
     background-position: center;    
 }
-:is(.elso-kartya-1-cim) .elso-kartya-1:hover{
-    display: block;
+.masodik-oldal-elso-kartya-gomb{
+    color: black;
+    font-size: 4rem;
+    border: 1px solid;
+    text-decoration: none;
 }
+
 /*---------------------------------------------*/
 
 
@@ -172,7 +176,6 @@ main {
     height: 100%;
     background-repeat: no-repeat;
     margin: auto;
-    display: table;
     background-size: cover;
     background-position: center;
 }
@@ -186,8 +189,52 @@ main {
 /*---------------------------------------------*/
 
 
+/*Töltő kép kialakítás*/
 
-
+#tolto-kep{
+    background: black;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.loading{
+    position: relative;
+    color: white;
+}
+.loader{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(45deg,transparent,transparent 40%, #e5f403);
+    animation: animate 2s linear infinite;
+}
+.loader:before{
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    background: black;
+    border-radius: 50%;
+    z-index: 5;
+}
+.loader:after{
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: linear-gradient(45deg,transparent,transparent 40%, #e5f403);
+    border-radius: 50%;
+    z-index: 3;
+    filter: blur(30px);
+}
 /*---------------------------------------------*/
 
 
@@ -585,7 +632,16 @@ main {
       opacity: 0;
     }
   }
-
+ @keyframes animate{
+     0%{
+         transform: rotate(0deg);
+         filter: hue-rotate(0deg);
+     }
+     100%{
+         transform: rotate(360deg);
+         filter: hue-rotate(360deg);
+     }
+ }
 
 /*Reszpó*/
 
@@ -615,10 +671,20 @@ main {
     }
     .masodik-div{
         align-items: flex-end;
-    }    
+    }
     .masodik-kartya{
-        width: 300px;
         height: 18rem;
+    }
+    .masodik-kartya-3{
+        width: 90%;
+        height: 18rem;
+    }
+    .masodik-kartya-1,.masodik-kartya-2{
+        width: 45%;
+    }
+    .masodik-tarolo{
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 }
 
@@ -638,4 +704,32 @@ main {
     .neon-gomb {
         font-size: 9.7vw;
     }
+    .elso-kartya-1{
+        background: url("kepek/gaming.gif");
+    }
+    .elso-kartya-2{    
+        background: url("kepek/program.gif");
+    }
+    .elso-kartya-1,
+.elso-kartya-2,
+.elso-kartya-3{
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.elso-kartya-1-cim{
+    display: block !important;
+    animation: none;
+}
+:is(.elso-kartya-1-cim) .elso-kartya-1:not(:hover){
+    display: block;
+}
+.elso-kartya-1:not(:hover) .elso-kartya-1-cim.did-fade-in {
+    animation: none;
+}
+.elso-kartya-1:hover .elso-kartya-1-cim {
+    -webkit-animation: none;
+    animation: none;
+}
 }
